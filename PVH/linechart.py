@@ -69,7 +69,7 @@ plt.grid(True)
 plt.xticks(y_pos, subject)
 ax.set_ylim(0,20)
 plt.ylabel('percent')
-plt.title('Bar Chart - Thống kê số học sinh không tham gia thi theo từng môn') 
+plt.title('Line Chart - Thống kê số học sinh không tham gia thi theo từng môn') 
 
 # make value
 rects = ax.patches
