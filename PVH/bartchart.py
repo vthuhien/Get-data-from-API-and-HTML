@@ -1,6 +1,13 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+with open("data_clean.csv" , "r" , encoding="utf8") as file:
+    data = file.read().split("\n")
+
+title = data[0]
+std = data[1:]
+total = len(std)
+check = 0
 
 cnt_exam =  [0] * 9
 cnt_no_exam =  [0] * 9
@@ -16,34 +23,41 @@ with open("data_clean.csv", "r", encoding="utf8") as file:
         if (data[0] == '0'):
             data = data.split(',')
             score = data[2:]
+            
             for i in range(3):
                 if (score[i] != '-1'):
                     cnt_exam[i] +=1
                 else:
                     cnt_no_exam[i] +=1
-
+                    check +=1
+            
             if(data[1] == "khtn"):
                 for i in range(3,6):
                     if (score[i] != '-1'):
                         cnt_exam[i] +=1
                     else:
                         cnt_no_exam[i] += 1
+                        check +=1
             if(data[1] == "khxh"):
                 for i in range(6,9):
                     if (score[i] != '-1'):
                         cnt_exam[i] +=1
                     else:
                         cnt_no_exam[i] += 1
-
+                        check +=1
+            
         data = file.readline()
 
-# print(cnt_no_exam)
+tmp = total - check
+print(tmp)
+
+# print(cnt_no_exam[i])
 
 
 #tính phần trăm
 in_percent = [0] * 9
 for i in range(0,9):
-    in_percent[i] = round((cnt_exam[i]/97087)*100,2) #97087 = tổng std 
+    in_percent[i] = round((cnt_exam[i]/tmp)*100,2) #97087 = tổng std 
 
 
 # print(in_percent)
