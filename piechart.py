@@ -58,3 +58,4 @@ plt.legend(title = "Subjects:")
 plt.axis('equal')  # Đảm bảo biểu đồ hình tròn
 plt.title('Pie Chart - Thống kê tổng số học sinh dự thi các môn')
 plt.show()
+plt.savefig('piechart.png')

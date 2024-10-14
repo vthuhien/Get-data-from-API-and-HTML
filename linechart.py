@@ -80,3 +80,4 @@ for rect, label in zip(rects, cnt_no_exam):
     )
 
 plt.show()
+plt.savefig('linechart.png')
